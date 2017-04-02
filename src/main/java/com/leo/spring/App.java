@@ -49,15 +49,10 @@ public class App {
 		 * per.getApodo());
 		 */
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("com/leo/xml/beans.xml");
-		Persona per = (Persona) appContext.getBean("personaBean2");
-
-		String nombresCiudades = "";
-		for (Ciudad ciu : per.getPais().getCiudades()) {
-			nombresCiudades += ciu.getNombre() + "-";
-		}
+		Persona per = (Persona) appContext.getBean("persona");
 
 		System.out.println(per.getId() + " " + per.getNombre() + " " + per.getApodo() + " " + per.getPais().getNombre()
-				+ " " + nombresCiudades);
+				+ " " + per.getCiudad().getNombre());
 		((ConfigurableApplicationContext) appContext).close();
 
 	}

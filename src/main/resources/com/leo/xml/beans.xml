@@ -3,34 +3,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="persona" class="com.leo.beans.Persona" name="personaBean2">
+	<!-- <bean id="persona" class="com.leo.beans.Persona" autowire="byName"> -->
+	<bean id="persona" class="com.leo.beans.Persona" autowire="byType">
 		<property name="id" value="1"></property>
 		<property name="nombre" value="Leo"></property>
 		<property name="apodo" value="Coder"></property>
-		<property name="pais">
-			<bean id="pais" class="com.leo.beans.Pais">
-				<property name="nombre" value="México"></property>
-				<property name="ciudades">
-					<list>
-						<ref bean="ciudad1" />
-						<ref bean="ciudad2" />
-						<ref bean="ciudad3" />
-					</list>
-				</property>
-			</bean>
-		</property>
 	</bean>
-
-	<bean id="ciudad1" class="com.leo.beans.Ciudad">
+	<bean id="pais" class="com.leo.beans.Pais">
+		<property name="nombre" value="México"></property>
+	</bean>
+	<bean id="ciudad" class="com.leo.beans.Ciudad">
 		<property name="nombre" value="Oaxaca"></property>
 	</bean>
-	<bean id="ciudad2" class="com.leo.beans.Ciudad">
-		<property name="nombre" value="Querétaro"></property>
-	</bean>
-	<bean id="ciudad3" class="com.leo.beans.Ciudad">
-		<property name="nombre" value="Guadalajara"></property>
-	</bean>
 
-	<alias name="persona" alias="personaBean" />
 
 </beans>
