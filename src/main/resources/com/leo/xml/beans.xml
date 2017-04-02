@@ -3,13 +3,28 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- <bean id="mundo" class="com.leo.beans.Mundo"> <property name="saludo" 
+	<!-- anotaciones
+	 <bean id="mundo" class="com.leo.beans.Mundo"> <property name="saludo" 
 		value="Hola Mundo!"></property> </bean> -->
 		
+		<!--
 	<bean id="persona" class="com.leo.beans.Persona">
 		<constructor-arg index="0" value="1"></constructor-arg>
 		<constructor-arg index="2" value="Leo"></constructor-arg>
 		<constructor-arg index="1" value="Coder"></constructor-arg>
+	</bean> -->
+	<!-- Inyeccion con objetos -->
+	<bean id="persona" class="com.leo.beans.Persona">
+		<property name="pais" ref="pais"></property>
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Leo"></property>
+		<property name="apodo" value="Coder"></property>		
 	</bean>
-
+	<bean id="pais" class="com.leo.beans.Pais">
+		<property name="nombre" value="México"></property>
+		<property name="ciudad" ref="ciudad"></property>
+	</bean>
+	<bean id="ciudad" class="com.leo.beans.Ciudad">
+		<property name="nombre" value="Oaxaca"></property>
+	</bean>
 </beans>
