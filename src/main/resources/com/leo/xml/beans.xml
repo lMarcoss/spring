@@ -10,15 +10,27 @@
 		<property name="pais">
 			<bean id="pais" class="com.leo.beans.Pais">
 				<property name="nombre" value="México"></property>
-				<property name="ciudad">
-					<bean id="ciudad" class="com.leo.beans.Ciudad">
-						<property name="nombre" value="Oaxaca"></property>
-					</bean>
+				<property name="ciudades">
+					<list>
+						<ref bean="ciudad1" />
+						<ref bean="ciudad2" />
+						<ref bean="ciudad3" />
+					</list>
 				</property>
 			</bean>
 		</property>
 	</bean>
-	
-	<alias name="persona" alias="personaBean"/>
+
+	<bean id="ciudad1" class="com.leo.beans.Ciudad">
+		<property name="nombre" value="Oaxaca"></property>
+	</bean>
+	<bean id="ciudad2" class="com.leo.beans.Ciudad">
+		<property name="nombre" value="Querétaro"></property>
+	</bean>
+	<bean id="ciudad3" class="com.leo.beans.Ciudad">
+		<property name="nombre" value="Guadalajara"></property>
+	</bean>
+
+	<alias name="persona" alias="personaBean" />
 
 </beans>

@@ -2,8 +2,11 @@ package com.leo.spring;
 
 import com.leo.beans.AppConfig;
 import com.leo.beans.AppConfig2;
+import com.leo.beans.Ciudad;
 import com.leo.beans.Mundo;
 import com.leo.beans.Persona;
+
+import java.util.Iterator;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -48,8 +51,13 @@ public class App {
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("com/leo/xml/beans.xml");
 		Persona per = (Persona) appContext.getBean("personaBean2");
 
+		String nombresCiudades = "";
+		for (Ciudad ciu : per.getPais().getCiudades()) {
+			nombresCiudades += ciu.getNombre() + "-";
+		}
+
 		System.out.println(per.getId() + " " + per.getNombre() + " " + per.getApodo() + " " + per.getPais().getNombre()
-				+ " " + per.getPais().getCiudad().getNombre());
+				+ " " + nombresCiudades);
 		((ConfigurableApplicationContext) appContext).close();
 
 	}
