@@ -46,7 +46,7 @@ public class App {
 		 * per.getApodo());
 		 */
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("com/leo/xml/beans.xml");
-		Persona per = (Persona) appContext.getBean("persona");
+		Persona per = (Persona) appContext.getBean("personaBean2");
 
 		System.out.println(per.getId() + " " + per.getNombre() + " " + per.getApodo() + " " + per.getPais().getNombre()
 				+ " " + per.getPais().getCiudad().getNombre());
